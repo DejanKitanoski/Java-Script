@@ -40,12 +40,18 @@ function populateShow(show) {
             ${show.summary}
             <p>Premiered: ${show.premiered}</p>
             <p>Ended: ${show.ended}</p>
+            <button id="crew-button" class="crew">Crew</button>
        </div>
     `;
 
   showContainer.appendChild(showDivElement);
-}
 
+  
+  const crewButton = document.getElementById("crew-button");
+  crewButton.addEventListener("click", () => {
+    window.location.href = `crew.html?id=${id}`;
+  });
+}
 function populateEpisodes(episodes) {
   const episodeContainer = document.getElementById("episodes");
   episodeContainer.innerHTML = `<h1>Episodes: ${episodes.length}</h1>`;
@@ -66,6 +72,7 @@ function populateEpisodes(episodes) {
                 <span><i class="fa fa-star" style="color: gold"></i> ${episode.rating.average}</span>
                 <button><i class="fa fa-star" style="color: blue"></i> Rate</button>
             </div>
+            
         </div>
       `;
 
